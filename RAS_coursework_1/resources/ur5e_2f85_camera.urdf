@@ -1,0 +1,1032 @@
+<?xml version="1.0"?>
+<robot name="UR5e" xmlns:xacro="http://ros.org/wiki/xacro">
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0.05" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.076" length="0.1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.05" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.076" length="0.1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="shoulder_pan_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="shoulder_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="150" lower="-6.28319" upper="6.28319" velocity="3.14"/>
+    <origin xyz="0 0 0.163" rpy="0 0 0"/>
+  </joint>
+  <link name="shoulder_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.059" length="0.135"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.059" length="0.135"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0.03 0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.059" length="0.093"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.03 0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.059" length="0.093"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="shoulder_lift_joint" type="revolute">
+    <parent link="shoulder_link"/>
+    <child link="upper_arm_link"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="150" lower="-6.28319" upper="6.28319" velocity="3.14"/>
+    <origin xyz="0 0.138 0" rpy="0 1.570796 0"/>
+  </joint>
+  <link name="upper_arm_link">
+    <visual>
+      <origin xyz="0 0 0.22" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.059" length="0.407"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.22" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.059" length="0.407"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.059" length="0.133"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.059" length="0.133"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 -0.005 0.424" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.059" length="0.149"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.005 0.424" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.059" length="0.149"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="elbow_joint" type="revolute">
+    <parent link="upper_arm_link"/>
+    <child link="forearm_link"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="150" lower="-3.14159" upper="3.14159" velocity="3.14"/>
+    <origin xyz="0 -0.131 0.425" rpy="0 0 0"/>
+  </joint>
+  <link name="forearm_link">
+    <visual>
+      <origin xyz="0 0 0.207" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.038" length="0.36"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.207" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.038" length="0.36"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 -0.001 0.39" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.039" length="0.109"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.001 0.39" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.039" length="0.109"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0.06 0" rpy="1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.058" length="0.05"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.06 0" rpy="1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.058" length="0.05"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0.06 0.025" rpy="1.570796 0 0"/>
+      <geometry>
+        <sphere radius="0.058"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.06 0.025" rpy="1.570796 0 0"/>
+      <geometry>
+        <sphere radius="0.058"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0.06 -0.025" rpy="1.570796 0 0"/>
+      <geometry>
+        <sphere radius="0.058"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.06 -0.025" rpy="1.570796 0 0"/>
+      <geometry>
+        <sphere radius="0.058"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0.07" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.04" length="0.1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.07" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.04" length="0.1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0.05 0.07" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.04"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.05 0.07" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.04"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 -0.05 0.07" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.04"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.05 0.07" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.04"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wrist_1_joint" type="revolute">
+    <parent link="forearm_link"/>
+    <child link="wrist_1_link"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="28" lower="-6.28319" upper="6.28319" velocity="6.28"/>
+    <origin xyz="0 0 0.392" rpy="0 1.570796 0"/>
+  </joint>
+  <link name="wrist_1_link">
+    <visual>
+      <origin xyz="0 0.089 0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.038" length="0.086"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.089 0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.038" length="0.086"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0.126 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.038" length="0.112"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.126 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.038" length="0.112"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wrist_2_joint" type="revolute">
+    <parent link="wrist_1_link"/>
+    <child link="wrist_2_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="28" lower="-6.28319" upper="6.28319" velocity="6.28"/>
+    <origin xyz="0 0.127 0" rpy="0 0 0"/>
+  </joint>
+  <link name="wrist_2_link">
+    <visual>
+      <origin xyz="0 -0.001 0.0995" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.04" length="0.108"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.001 0.0995" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.04" length="0.108"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 -0.001 0.0676" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.038" length="0.043"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.001 0.0676" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.038" length="0.043"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wrist_3_joint" type="revolute">
+    <parent link="wrist_2_link"/>
+    <child link="wrist_3_link"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="28" lower="-6.28319" upper="6.28319" velocity="6.28"/>
+    <origin xyz="0 0 0.1" rpy="0 0 0"/>
+  </joint>
+  <link name="wrist_3_link">
+    <visual>
+      <origin xyz="0 0.07 0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.038" length="0.048"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.07 0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.038" length="0.048"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0.09 0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.032" length="0.018"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.09 0" rpy="-1.570796 0 0"/>
+      <geometry>
+        <cylinder radius="0.032" length="0.018"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="ROBOTIQ 2F-85 Gripper">
+    <visual>
+      <origin xyz="0 0 0.0175" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.038" length="0.035"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.0175" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.038" length="0.035"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0.054" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.04" length="0.021"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.054" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.04" length="0.021"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wrist_3_link_ROBOTIQ 2F-85 Gripper_joint" type="fixed">
+    <parent link="wrist_3_link"/>
+    <child link="ROBOTIQ 2F-85 Gripper"/>
+    <origin xyz="0 0.1 0" rpy="0 -1.570796 -1.570796"/>
+  </joint>
+  <joint name="hingejoint" type="continuous">
+    <parent link="ROBOTIQ 2F-85 Gripper"/>
+    <child link="right inner knuckle"/>
+    <axis xyz="1 0 0"/>
+    <origin xyz="0 0.0127 0.06142" rpy="0 0 0"/>
+  </joint>
+  <link name="right inner knuckle">
+    <visual>
+      <origin xyz="0 0.037 0.0434" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.0026" length="0.027"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.037 0.0434" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.0026" length="0.027"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0.0231 0.027" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.0152 0.0122 0.0072"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.0231 0.027" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.0152 0.0122 0.0072"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.00972 0.0308 0.0359" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.0046 0.0125 0.0307"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.00972 0.0308 0.0359" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.0046 0.0125 0.0307"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.00972 0.0308 0.0359" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.0046 0.0125 0.0307"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.00972 0.0308 0.0359" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.0046 0.0125 0.0307"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.0145 0.016454 0.019218" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.005 0.0122 0.0288"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0145 0.016454 0.019218" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.005 0.0122 0.0288"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0145 0.016454 0.019218" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.005 0.0122 0.0288"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0145 0.016454 0.019218" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.005 0.0122 0.0288"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.0157 0.001793 0.002019" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.0074 0.0122 0.0169"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0157 0.001793 0.002019" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.0074 0.0122 0.0169"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0157 0.001793 0.002019" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.0074 0.0122 0.0169"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0157 0.001793 0.002019" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.0074 0.0122 0.0169"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="ROBOTIQ 2F-85 Gripper::right finger joint" type="revolute">
+    <parent link="ROBOTIQ 2F-85 Gripper"/>
+    <child link="right outer knuckle"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="0.1" lower="0" upper="0.8" velocity="2"/>
+    <origin xyz="0 0.030601 0.054904" rpy="0 0 0"/>
+  </joint>
+  <link name="right outer knuckle">
+    <visual>
+      <origin xyz="0 0 0" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.0076" length="0.011"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.0076" length="0.011"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0.03142 -0.00405" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.006" length="0.011"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.03142 -0.00405" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.006" length="0.011"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0.02474 0.00687" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.0025" length="0.024"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.02474 0.00687" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.0025" length="0.024"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0.0281 0.0022" rpy="-0.12 0 0"/>
+      <geometry>
+        <box size="0.0091 0.02 0.0205"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.0281 0.0022" rpy="-0.12 0 0"/>
+      <geometry>
+        <box size="0.0091 0.02 0.0205"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0.012 -0.0016" rpy="-0.12 0 0"/>
+      <geometry>
+        <box size="0.0091 0.012 0.009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.012 -0.0016" rpy="-0.12 0 0"/>
+      <geometry>
+        <box size="0.0091 0.012 0.009"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right outer finger">
+    <visual>
+      <origin xyz="0 0 0" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.0025" length="0.027"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.0025" length="0.027"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0.0061 0.0472" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.0025" length="0.027"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.0061 0.0472" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.0025" length="0.027"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0.003 0.0231" rpy="-0.13 0 0"/>
+      <geometry>
+        <box size="0.014 0.0124 0.0105"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.003 0.0231" rpy="-0.13 0 0"/>
+      <geometry>
+        <box size="0.014 0.0124 0.0105"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.0095 0.0043 0.0355" rpy="-0.13 0 0"/>
+      <geometry>
+        <box size="0.005 0.0121 0.035"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0095 0.0043 0.0355" rpy="-0.13 0 0"/>
+      <geometry>
+        <box size="0.005 0.0121 0.035"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0095 0.0043 0.0355" rpy="-0.13 0 0"/>
+      <geometry>
+        <box size="0.005 0.0121 0.035"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0095 0.0043 0.0355" rpy="-0.13 0 0"/>
+      <geometry>
+        <box size="0.005 0.0121 0.035"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0085 0.0007 0.0066" rpy="-0.13 0 0"/>
+      <geometry>
+        <box size="0.007 0.0121 0.025"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0085 0.0007 0.0066" rpy="-0.13 0 0"/>
+      <geometry>
+        <box size="0.007 0.0121 0.025"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.0085 0.0007 0.0066" rpy="-0.13 0 0"/>
+      <geometry>
+        <box size="0.007 0.0121 0.025"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0085 0.0007 0.0066" rpy="-0.13 0 0"/>
+      <geometry>
+        <box size="0.007 0.0121 0.025"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right outer knuckle_right outer finger_joint" type="fixed">
+    <parent link="right outer knuckle"/>
+    <child link="right outer finger"/>
+    <origin xyz="0 0.0315 -0.0041" rpy="0 0 0"/>
+  </joint>
+  <joint name="hingejoint_0" type="continuous">
+    <parent link="right outer finger"/>
+    <child link="ROBOTIQ 2F-85 Gripper right inner finger"/>
+    <axis xyz="1 0 0"/>
+    <origin xyz="0 0.0061 0.0471" rpy="0 0 0"/>
+  </joint>
+  <link name="ROBOTIQ 2F-85 Gripper right inner finger">
+    <visual>
+      <origin xyz="0 0 0" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.006" length="0.015"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.006" length="0.015"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 -0.018 0.0065" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.006" length="0.015"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.018 0.0065" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.006" length="0.015"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 -0.0086 0.0031" rpy="1.22 0 0"/>
+      <geometry>
+        <box size="0.014 0.012 0.019"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.0086 0.0031" rpy="1.22 0 0"/>
+      <geometry>
+        <box size="0.014 0.012 0.019"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 -0.0179 0.01" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.014 0.012 0.007"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.0179 0.01" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.014 0.012 0.007"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 -0.0155 0.029" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.014 0.007 0.031"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.0155 0.029" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.014 0.007 0.031"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right inner finger pad">
+  </link>
+  <joint name="ROBOTIQ 2F-85 Gripper right inner finger_right inner finger pad_joint" type="fixed">
+    <parent link="ROBOTIQ 2F-85 Gripper right inner finger"/>
+    <child link="right inner finger pad"/>
+    <origin xyz="0 -0.02202 0.03242" rpy="-0.028 0 0"/>
+  </joint>
+  <joint name="hingejoint_1" type="continuous">
+    <parent link="ROBOTIQ 2F-85 Gripper"/>
+    <child link="left inner knuckle"/>
+    <axis xyz="1 0 0"/>
+    <origin xyz="0 -0.0127 0.06142" rpy="0 0 -3.141592"/>
+  </joint>
+  <link name="left inner knuckle">
+    <visual>
+      <origin xyz="0 0.037 0.0434" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.0026" length="0.027"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.037 0.0434" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.0026" length="0.027"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0.0231 0.027" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.0152 0.0122 0.0072"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.0231 0.027" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.0152 0.0122 0.0072"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.00972 0.0308 0.0359" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.0046 0.0125 0.0307"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.00972 0.0308 0.0359" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.0046 0.0125 0.0307"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.00972 0.0308 0.0359" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.0046 0.0125 0.0307"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.00972 0.0308 0.0359" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.0046 0.0125 0.0307"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.0145 0.016454 0.019218" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.005 0.0122 0.0288"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0145 0.016454 0.019218" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.005 0.0122 0.0288"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0145 0.016454 0.019218" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.005 0.0122 0.0288"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0145 0.016454 0.019218" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.005 0.0122 0.0288"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.0157 0.001793 0.002019" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.0074 0.0122 0.0169"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0157 0.001793 0.002019" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.0074 0.0122 0.0169"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0157 0.001793 0.002019" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.0074 0.0122 0.0169"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0157 0.001793 0.002019" rpy="-0.7 0 0"/>
+      <geometry>
+        <box size="0.0074 0.0122 0.0169"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="ROBOTIQ 2F-85 Gripper::left finger joint" type="revolute">
+    <parent link="ROBOTIQ 2F-85 Gripper"/>
+    <child link="left outer knuckle"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="0.1" lower="0" upper="0.8" velocity="2"/>
+    <origin xyz="0 -0.030601 0.054904" rpy="0 0 -3.141592"/>
+  </joint>
+  <link name="left outer knuckle">
+    <visual>
+      <origin xyz="0 0 0" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.0076" length="0.011"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.0076" length="0.011"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0.03142 -0.00405" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.006" length="0.011"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.03142 -0.00405" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.006" length="0.011"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0.02474 0.00687" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.0025" length="0.024"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.02474 0.00687" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.0025" length="0.024"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0.0281 0.0022" rpy="-0.12 0 0"/>
+      <geometry>
+        <box size="0.0091 0.02 0.0205"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.0281 0.0022" rpy="-0.12 0 0"/>
+      <geometry>
+        <box size="0.0091 0.02 0.0205"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0.012 -0.0016" rpy="-0.12 0 0"/>
+      <geometry>
+        <box size="0.0091 0.012 0.009"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.012 -0.0016" rpy="-0.12 0 0"/>
+      <geometry>
+        <box size="0.0091 0.012 0.009"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left outer finger">
+    <visual>
+      <origin xyz="0 0 0" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.0025" length="0.027"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.0025" length="0.027"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0.0061 0.0472" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.0025" length="0.027"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.0061 0.0472" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.0025" length="0.027"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0.003 0.0231" rpy="-0.13 0 0"/>
+      <geometry>
+        <box size="0.014 0.0124 0.0105"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.003 0.0231" rpy="-0.13 0 0"/>
+      <geometry>
+        <box size="0.014 0.0124 0.0105"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.0095 0.0043 0.0355" rpy="-0.13 0 0"/>
+      <geometry>
+        <box size="0.005 0.0121 0.035"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0095 0.0043 0.0355" rpy="-0.13 0 0"/>
+      <geometry>
+        <box size="0.005 0.0121 0.035"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0095 0.0043 0.0355" rpy="-0.13 0 0"/>
+      <geometry>
+        <box size="0.005 0.0121 0.035"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0095 0.0043 0.0355" rpy="-0.13 0 0"/>
+      <geometry>
+        <box size="0.005 0.0121 0.035"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0085 0.0007 0.0066" rpy="-0.13 0 0"/>
+      <geometry>
+        <box size="0.007 0.0121 0.025"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0085 0.0007 0.0066" rpy="-0.13 0 0"/>
+      <geometry>
+        <box size="0.007 0.0121 0.025"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.0085 0.0007 0.0066" rpy="-0.13 0 0"/>
+      <geometry>
+        <box size="0.007 0.0121 0.025"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0085 0.0007 0.0066" rpy="-0.13 0 0"/>
+      <geometry>
+        <box size="0.007 0.0121 0.025"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left outer knuckle_left outer finger_joint" type="fixed">
+    <parent link="left outer knuckle"/>
+    <child link="left outer finger"/>
+    <origin xyz="0 0.0315 -0.0041" rpy="0 0 0"/>
+  </joint>
+  <joint name="hingejoint_2" type="continuous">
+    <parent link="left outer finger"/>
+    <child link="ROBOTIQ 2F-85 Gripper left inner finger"/>
+    <axis xyz="1 0 0"/>
+    <origin xyz="0 0.0061 0.0471" rpy="0 0 0"/>
+  </joint>
+  <link name="ROBOTIQ 2F-85 Gripper left inner finger">
+    <visual>
+      <origin xyz="0 0 0" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.006" length="0.015"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.006" length="0.015"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 -0.018 0.0065" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.006" length="0.015"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.018 0.0065" rpy="3.141593 1.570793 3.141593"/>
+      <geometry>
+        <cylinder radius="0.006" length="0.015"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 -0.0086 0.0031" rpy="1.22 0 0"/>
+      <geometry>
+        <box size="0.014 0.012 0.019"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.0086 0.0031" rpy="1.22 0 0"/>
+      <geometry>
+        <box size="0.014 0.012 0.019"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 -0.0179 0.01" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.014 0.012 0.007"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.0179 0.01" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.014 0.012 0.007"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 -0.0155 0.029" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.014 0.007 0.031"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.0155 0.029" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.014 0.007 0.031"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left inner finger pad">
+  </link>
+  <joint name="ROBOTIQ 2F-85 Gripper left inner finger_left inner finger pad_joint" type="fixed">
+    <parent link="ROBOTIQ 2F-85 Gripper left inner finger"/>
+    <child link="left inner finger pad"/>
+    <origin xyz="0 -0.02202 0.03242" rpy="-0.028 0 0"/>
+  </joint>
+  
+  <!-- extra frame for camera -->
+  <link name="camera">
+  </link>
+  <joint name="wrist_3_link_camera_joint" type="fixed">
+    <parent link="wrist_3_link"/>
+    <child link="camera"/>
+    <origin xyz="0 0.1 0.05" rpy="-1.570796 0 0.000004"/>
+  </joint>
+  
+  <!-- extra frame for tool center point -->
+  <link name="TCP">
+	<visual>
+	<origin xyz="0 0 0" rpy="0 0 0"/>
+		<geometry>
+			<sphere radius="0.02"/>
+		</geometry>
+	</visual>
+  </link>
+  <joint name="wrist_3_link_TCP_joint" type="fixed">
+    <parent link="wrist_3_link"/>
+    <child link="TCP"/>
+    <origin xyz="0 0.26 0" rpy="0 0 0"/>
+  </joint>
+</robot>

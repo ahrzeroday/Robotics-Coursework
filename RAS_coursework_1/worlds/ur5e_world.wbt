@@ -1,0 +1,96 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/universal_robots/protos/UR5e.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/devices/robotiq/protos/Robotiq2f85Gripper.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/solids/protos/SolidBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/factory/containers/protos/PlasticCrate.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.2044276616341694 0.2047513942803584 -0.9572283936966322 1.6129009950930895
+  position -0.0037763922023837937 3.0459502052026224 1.7230930035461829
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 2 2
+}
+DEF BOX1 SolidBox {
+  translation 0.0435648 0.496973 0.291791
+  rotation 0.8954034374510925 -0.2883832212887623 -0.33924593126504005 1.5602938501034629
+  size 0.06 0.06 0.06
+  physics Physics {
+    density 100
+    mass 0.2
+  }
+}
+DEF BOX2 SolidBox {
+  translation -0.0924917 0.515775 0.32116
+  rotation -0.7040680391142333 0.7040570391136223 0.09269240514949147 -0.369715307179586
+  name "box(1)"
+  size 0.06 0.06 0.06
+  physics Physics {
+    density 100
+    mass 0.2
+  }
+}
+DEF BOX3 SolidBox {
+  translation -0.153554 0.434483 0.29984
+  rotation -0.09270389814127715 0.4978469900181157 0.8622959827108753 -0.3697053071795864
+  name "box(2)"
+  size 0.06 0.06 0.06
+  physics Physics {
+    density 100
+    mass 0.2
+  }
+}
+DEF BOX4 SolidBox {
+  translation -0.0176256 0.461164 0.177248
+  rotation -0.7040680391142333 0.7040570391136223 0.09269240514949147 -0.369715307179586
+  name "box(3)"
+  size 0.06 0.06 0.06
+  physics Physics {
+    density 100
+    mass 0.2
+  }
+}
+DEF BOX5 SolidBox {
+  translation -0.100077 0.519477 0.191436
+  rotation -0.7040680391142333 0.7040570391136223 0.09269240514949147 -0.369715307179586
+  name "box(4)"
+  size 0.06 0.06 0.06
+  physics Physics {
+    density 100
+    mass 0.2
+  }
+}
+PlasticCrate {
+  translation -0.7 0 0
+  size 0.4 0.4 0.2
+  color 1 0.666667 0
+}
+UR5e {
+  controller "ras"
+  supervisor TRUE
+  toolSlot [
+    RangeFinder {
+      translation 0 0 0.05
+      rotation 0 0 1 1.5708
+      name "depth"
+      fieldOfView 1
+      width 128
+      near 0.1
+      minRange 0.1
+      maxRange 2
+    }
+    Robotiq2f85Gripper {
+      rotation -0.5773502691896258 0.5773502691896258 0.5773502691896258 2.0943951023931957
+    }
+  ]
+}
