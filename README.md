@@ -33,11 +33,15 @@ A UR5e robotic arm, equipped with a depth camera at its end-effector, detects an
 
 Video:
 
-![](\media\1.mp4)
+
+https://github.com/user-attachments/assets/d92d5065-82c7-4b98-bcc6-0313d31c71d7
+
 
 Stacked cube:
 
-![](\media\1_1.mp4)
+
+https://github.com/user-attachments/assets/0809a990-3fdc-45d2-b03f-f4d923041ebb
+
 
 **Learning Outcomes:**
 1. Implement forward and inverse kinematics for robotic control.
@@ -117,7 +121,9 @@ An autonomous vehicle navigates a road network in Webots, following lanes, detec
 
 Video:
 
-![](\media\2.mp4)
+
+https://github.com/user-attachments/assets/af132bf3-3c77-4971-bb1a-fea286984ec2
+
 
 **Learning Outcomes:**
 1. Implement computer vision for lane detection and traffic light recognition.
